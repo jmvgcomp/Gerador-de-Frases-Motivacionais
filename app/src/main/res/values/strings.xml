@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">FrasesMotivacionais</string>
+    <string name="messagem_inicio">Vamos começar?</string>
+    <string name="nome">Qual o seu nome?</string>
+    <string name="salvar">Salvar</string>
 </resources>
