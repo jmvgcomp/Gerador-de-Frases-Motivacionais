@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
 
-    val textName = findViewById<TextView>(R.id.editText)
+    val textName = findViewById<TextView>(R.id.textName)
 
     mSecurityPreferences = SecurityPreferences(this)
     textName.text = mSecurityPreferences.getString(MotivationConstants.KEY.PERSON_NAME)
