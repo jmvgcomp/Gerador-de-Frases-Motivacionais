@@ -18,7 +18,7 @@
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/nome_usuario"
+        android:id="@+id/editNomeUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
@@ -30,6 +30,7 @@
         android:hint="@string/nome"/>
 
     <Button
+        android:id="@+id/botaoSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
