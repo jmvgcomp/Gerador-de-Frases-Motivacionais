@@ -20,9 +20,8 @@
             android:layout_weight="1"
             android:layout_margin="8dp"
             android:layout_height="45dp"
-            app:tint="@color/white"
             android:src="@drawable/ic_infinity"
-            />
+            app:tint="@color/colorAccent" />
 
         <ImageView
             android:id="@+id/imageHappy"
@@ -31,14 +30,14 @@
             android:layout_weight="1"
             android:layout_height="45dp"
             android:src="@drawable/ic_happy"
-            app:tint="@color/white" />
+            app:tint="@color/colorAccent" />
 
         <ImageView
             android:id="@+id/imageMorning"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_margin="8dp"
-            app:tint="@color/white"
+            app:tint="@color/colorAccent"
             android:layout_height="45dp"
             android:src="@drawable/ic_sun"
             />
