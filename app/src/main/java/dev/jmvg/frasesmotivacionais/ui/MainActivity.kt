@@ -3,16 +3,20 @@ package dev.jmvg.frasesmotivacionais.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import dev.jmvg.frasesmotivacionais.R
 import dev.jmvg.frasesmotivacionais.infra.MotivationConstants
 import dev.jmvg.frasesmotivacionais.infra.SecurityPreferences
+import dev.jmvg.frasesmotivacionais.repository.Mock
+import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
   private lateinit var mSecurityPreferences: SecurityPreferences
+  private var mPhraseFilter : Int = MotivationConstants.PHRASEFILTER.ALL
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -25,6 +29,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     val userName = mSecurityPreferences.getString(MotivationConstants.KEY.PERSON_NAME)
     textName.text = "Olá, $userName"
 
+
+    findViewById<ImageView>(R.id.imageAll)
+      .setColorFilter(ContextCompat.getColor(this, R.color.white))
+
+    handleNewPhrase()
+
+
+    findViewById<Button>(R.id.buttonNewPhrase).setOnClickListener(this)
     findViewById<ImageView>(R.id.imageAll).setOnClickListener(this)
     findViewById<ImageView>(R.id.imageHappy).setOnClickListener(this)
     findViewById<ImageView>(R.id.imageMorning).setOnClickListener(this)
@@ -56,18 +68,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
       when(id){
         R.id.imageAll -> {
           imageAll.setColorFilter(ContextCompat.getColor(this, R.color.white))
+          mPhraseFilter = MotivationConstants.PHRASEFILTER.ALL
         }
         R.id.imageHappy -> {
           imageHappy.setColorFilter(ContextCompat.getColor(this, R.color.white))
+          mPhraseFilter = MotivationConstants.PHRASEFILTER.HAPPY
         }
         R.id.imageMorning -> {
           imageMorning.setColorFilter(ContextCompat.getColor(this, R.color.white))
+          mPhraseFilter = MotivationConstants.PHRASEFILTER.MORNING
         }
       }
   }
 
   private fun handleNewPhrase() {
-
+    findViewById<TextView>(R.id.textPhrase).text = Mock().getPhrase(mPhraseFilter)
   }
 
 
