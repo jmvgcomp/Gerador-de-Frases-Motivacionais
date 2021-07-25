@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import dev.jmvg.frasesmotivacionais.R
+import dev.jmvg.frasesmotivacionais.infra.MotivationConstants
 import dev.jmvg.frasesmotivacionais.infra.SecurityPreferences
 
 class SplashActivity : AppCompatActivity(), View.OnClickListener {
@@ -25,9 +26,17 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
     val botaoSalvar = findViewById<Button>(R.id.botaoSalvar);
     botaoSalvar.setOnClickListener(this)
 
+    verifyName()
 
 
+  }
 
+  private fun verifyName() {
+    val name = mSecurityPreferences.getString(MotivationConstants.KEY.PERSON_NAME)
+    if(name.isNotBlank()){
+      startActivity(Intent(this, MainActivity::class.java))
+      finish()
+    }
   }
 
   override fun onClick(view: View?) {
@@ -40,6 +49,7 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
     if(name.isNotBlank()){
       mSecurityPreferences.storeString("name", name)
       startActivity(Intent(this, MainActivity::class.java))
+      finish()
     }else{
       Toast.makeText(this, "O nome não pode estar vazio :(", Toast.LENGTH_LONG).show()
     }

@@ -1,17 +1,16 @@
 package dev.jmvg.frasesmotivacionais.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import dev.jmvg.frasesmotivacionais.R
 import dev.jmvg.frasesmotivacionais.infra.MotivationConstants
 import dev.jmvg.frasesmotivacionais.infra.SecurityPreferences
 import dev.jmvg.frasesmotivacionais.repository.Mock
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
